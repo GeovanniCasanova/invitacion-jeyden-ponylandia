@@ -10,7 +10,7 @@ export const event = {
   phone: '529997371285',
   confirmationDeadline: '10 de agosto',
   dressCode: 'Vaquera (opcional)',
-  activities: ['Alimentar animales', 'Fotos', 'Paseo a caballo'] as const,
+  activities: ['Ven a alimentar los animales', 'Paseo en pony', 'Habrá piscina'] as const,
   tagline: '¡Hay una celebración en Ponylandia!',
   heroDescription:
     'Acompáñanos a vivir una aventura en la granja, con animales en miniatura que nunca habías visto',
