@@ -1,0 +1,127 @@
+---
+---
+
+<section
+  class="relative min-h-screen overflow-hidden bg-ranch-cream flex flex-col"
+  aria-label="Guía de regalos"
+>
+  <!-- Barra de madera superior -->
+  <div
+    class="absolute top-0 left-0 right-0 h-[78px] wood-bar shadow-[inset_0_-5px_0_rgba(0,0,0,0.2)] pointer-events-none"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Contenido -->
+  <div class="relative flex flex-col w-full max-w-sm mx-auto px-5 pt-7 pb-10 flex-1">
+
+    <!-- Label -->
+    <span class="font-body font-bold text-[11px] tracking-[0.26em] text-ranch-cream-light mt-1">
+      GUÍA DE REGALOS
+    </span>
+
+    <!-- Encabezado con pavo -->
+    <div class="flex items-center gap-3 mt-3 mb-4">
+      <img
+        src="/images/art/pavo_regalos.png"
+        alt="Pavo con regalos"
+        class="w-24 h-24 object-contain shrink-0 reveal-scale"
+        width="96"
+        height="96"
+        loading="lazy"
+        decoding="async"
+      />
+      <div>
+        <h2 class="font-heading font-bold text-[22px] leading-tight text-ranch-primary reveal">
+          ¿Qué le regalo a Jeyden?
+        </h2>
+        <p class="font-body text-[12.5px] text-ranch-dark/55 mt-0.5 reveal" data-delay="1">
+          Aquí van algunas ideas que le encantan
+        </p>
+      </div>
+    </div>
+
+    <!-- Badge de tallas -->
+    <div class="flex gap-2 mb-5 reveal" data-delay="1">
+      <div class="flex-1 flex flex-col items-center py-3 px-2 rounded-2xl bg-ranch-gold/20 border border-ranch-gold/40">
+        <span class="text-xl mb-0.5">👕</span>
+        <span class="font-body font-bold text-[10px] tracking-widest text-ranch-brown/70">ROPA</span>
+        <span class="font-heading font-bold text-xl text-ranch-brown">Talla 10</span>
+      </div>
+      <div class="flex-1 flex flex-col items-center py-3 px-2 rounded-2xl bg-ranch-teal/15 border border-ranch-teal/30">
+        <span class="text-xl mb-0.5">👟</span>
+        <span class="font-body font-bold text-[10px] tracking-widest text-ranch-primary/70">ZAPATOS</span>
+        <span class="font-heading font-bold text-xl text-ranch-primary">Talla 21</span>
+      </div>
+    </div>
+
+    <!-- Categoría: Instrumentos Musicales -->
+    <div class="mb-4 reveal" data-delay="2">
+      <div class="flex items-center gap-2 mb-2">
+        <div class="w-7 h-7 rounded-lg bg-ranch-gold flex items-center justify-center text-sm">🎵</div>
+        <span class="font-heading font-bold text-[15px] text-ranch-dark">Instrumentos Musicales</span>
+      </div>
+      <p class="font-body text-[11px] text-ranch-dark/50 mb-2 pl-9">¡Le encanta hacer música!</p>
+      <div class="grid grid-cols-2 gap-2">
+        {[
+          { emoji: '🥁', name: 'Batería infantil' },
+          { emoji: '🎹', name: 'Teclado / Piano' },
+          { emoji: '🎺', name: 'Instrumentos de viento' },
+          { emoji: '🎤', name: 'Micrófono karaoke' },
+        ].map((item) => (
+          <div class="flex items-center gap-2 px-3 py-2.5 rounded-xl bg-ranch-gold/12 border border-ranch-gold/25">
+            <span class="text-lg shrink-0">{item.emoji}</span>
+            <span class="font-body font-bold text-[12px] text-ranch-dark leading-tight">{item.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Categoría: Numberblocks -->
+    <div class="mb-4 reveal" data-delay="3">
+      <div class="flex items-center gap-2 mb-2">
+        <div class="w-7 h-7 rounded-lg bg-ranch-teal flex items-center justify-center text-sm">🔢</div>
+        <span class="font-heading font-bold text-[15px] text-ranch-dark">Numberblocks</span>
+      </div>
+      <p class="font-body text-[11px] text-ranch-dark/50 mb-2 pl-9">¡Su serie favorita!</p>
+      <div class="grid grid-cols-2 gap-2">
+        {[
+          { emoji: '🧸', name: 'Figuras Numberblocks' },
+          { emoji: '📖', name: 'Libros Numberblocks' },
+          { emoji: '🎲', name: 'Juegos Numberblocks' },
+          { emoji: '🎨', name: 'Arte Numberblocks' },
+        ].map((item) => (
+          <div class="flex items-center gap-2 px-3 py-2.5 rounded-xl bg-ranch-teal/10 border border-ranch-teal/25">
+            <span class="text-lg shrink-0">{item.emoji}</span>
+            <span class="font-body font-bold text-[12px] text-ranch-dark leading-tight">{item.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Categoría: Más ideas -->
+    <div class="reveal" data-delay="4">
+      <div class="flex items-center gap-2 mb-2">
+        <div class="w-7 h-7 rounded-lg bg-ranch-green flex items-center justify-center text-sm">✨</div>
+        <span class="font-heading font-bold text-[15px] text-ranch-dark">Más ideas</span>
+      </div>
+      <div class="flex flex-wrap gap-1.5">
+        {[
+          '⛏️ Bloques magnéticos Minecraft',
+          '🟡 Play-Doh',
+          '🌈 Fomi moldeable',
+          '🪀 Juguetes sensoriales',
+          '🖍️ Colores',
+          '🤠 Toy Story (plástico)',
+          '🐄 Animales plástico / goma',
+          '📚 Libros pasta dura',
+          '🔊 Libros interactivos con sonidos',
+        ].map((tag) => (
+          <span class="px-2.5 py-1.5 rounded-full bg-ranch-green/12 border border-ranch-green/22 font-body font-bold text-[11px] text-ranch-green leading-none">
+            {tag}
+          </span>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>
