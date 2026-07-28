@@ -1,0 +1,85 @@
+---
+import { event } from '../../config/event';
+---
+
+<section
+  id="hero"
+  class="relative min-h-screen overflow-hidden hero-bg flex flex-col items-center"
+  aria-label="Hero: Jeyden cumple 9 años"
+>
+  <!-- Halo turquesa superior -->
+  <div
+    class="absolute -top-10 left-1/2 -translate-x-1/2 w-[420px] h-[420px] rounded-full halo-teal pointer-events-none"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Gradiente verde inferior -->
+  <div
+    class="absolute bottom-0 left-0 right-0 h-32 halo-hero-bottom pointer-events-none"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Contenido -->
+  <div class="relative flex flex-col items-center w-full max-w-sm mx-auto px-7 pt-8 pb-8 flex-1">
+
+    <!-- Label superior -->
+    <span class="font-body font-bold text-[10.5px] tracking-[0.28em] text-ranch-gold-dark reveal">
+      PONYLANDIA · GRANJA INTERACTIVA
+    </span>
+
+    <!-- Ilustración pavo señalando derecha -->
+    <div class="-mt-1 w-[318px] h-[300px] reveal-scale" data-delay="1">
+      <img
+        src="/images/art/pavo_senialando_derecha.png"
+        alt="Pavo real vaquero con la cola abierta"
+        class="w-full h-full object-contain"
+        loading="eager"
+        decoding="async"
+        width="318"
+        height="300"
+      />
+    </div>
+
+    <!-- Título -->
+    <h2 class="mt-5 text-center font-heading font-extrabold text-[38px] leading-[1.05] text-ranch-cream-light text-pretty reveal" data-delay="2">
+      ¡{event.name} cumple
+      <span class="block text-ranch-gold text-[52px] leading-[1.08]">{event.age} años!</span>
+    </h2>
+
+    <!-- Descripción -->
+    <p class="mt-3.5 text-center font-body text-[15px] leading-[1.55] text-ranch-cream-light/78 max-w-[300px] text-pretty reveal" data-delay="3">
+      {event.heroDescription}
+    </p>
+
+    <!-- Cards de información -->
+    <div class="mt-auto w-full flex flex-col gap-2.5 reveal" data-delay="4">
+
+      <!-- Fecha -->
+      <div class="flex items-center gap-3 px-4 py-3.5 rounded-2xl bg-ranch-cream-light/10 border border-ranch-gold/30">
+        <div class="w-[34px] h-[34px] rounded-full bg-ranch-gold shrink-0" aria-hidden="true"></div>
+        <div class="flex flex-col">
+          <span class="font-heading font-bold text-[15px] text-ranch-cream-light">
+            {event.dateDisplay} · {event.timeDisplay}
+          </span>
+          <span class="font-body font-semibold text-[11px] text-ranch-cream-light/55 tracking-[0.08em]">
+            DOMINGO
+          </span>
+        </div>
+      </div>
+
+      <!-- Lugar -->
+      <div class="flex items-center gap-3 px-4 py-3.5 rounded-2xl bg-ranch-cream-light/10 border border-ranch-teal/35">
+        <div class="w-[34px] h-[34px] rounded-full bg-ranch-teal shrink-0" aria-hidden="true"></div>
+        <div class="flex flex-col">
+          <span class="font-heading font-bold text-[15px] text-ranch-cream-light">
+            {event.venue}
+          </span>
+          <span class="font-body font-semibold text-[11px] text-ranch-cream-light/55 tracking-[0.08em]">
+            {event.address.toUpperCase()}
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,112 @@
+---
+import { event } from '../../config/event';
+
+const animals = [
+  { src: '/images/art/caballo.png',      alt: 'Pony',    delay: '0' },
+  { src: '/images/art/cerdito.png',      alt: 'Cerdito', delay: '1' },
+  { src: '/images/art/gallo_rooster.png', alt: 'Gallo',  delay: '2' },
+] as const;
+
+const confetti = [
+  { left: '10%', delay: '0s',    color: '#E9BC4B' },
+  { left: '25%', delay: '0.5s',  color: '#35B0AE' },
+  { left: '42%', delay: '1s',    color: '#1E7A5A' },
+  { left: '58%', delay: '1.5s',  color: '#B3402F' },
+  { left: '75%', delay: '2s',    color: '#E9BC4B' },
+  { left: '88%', delay: '2.5s',  color: '#35B0AE' },
+] as const;
+---
+
+<section
+  class="relative min-h-screen overflow-hidden farewell-bg flex flex-col items-center"
+  aria-label="Despedida"
+>
+  <!-- Confeti sutil -->
+  {event.showSecondaryAnimals && confetti.map((c) => (
+    <div
+      class="absolute top-0 w-2 h-2 rounded-sm animate-confetti-fall pointer-events-none"
+      style={`left: ${c.left}; animation-delay: ${c.delay}; background: ${c.color}; opacity: 0.7`}
+      aria-hidden="true"
+    />
+  ))}
+
+  <!-- Arbustos decorativos -->
+  <div
+    class="absolute bottom-[120px] -left-10 w-[280px] h-[150px] rounded-[50%_50%_0_0] bg-ranch-grass opacity-90 pointer-events-none"
+    aria-hidden="true"
+  ></div>
+  <div
+    class="absolute bottom-[120px] -right-12 w-[260px] h-[120px] rounded-[50%_50%_0_0] bg-ranch-green opacity-90 pointer-events-none"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Suelo de madera -->
+  <div
+    class="absolute bottom-0 left-0 right-0 h-[120px] bg-ranch-brown pointer-events-none"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Cerca horizontal -->
+  <div
+    class="absolute bottom-[120px] left-0 right-0 h-6 wood-fence-h pointer-events-none"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Contenido -->
+  <div class="relative flex flex-col items-center w-full max-w-sm mx-auto px-8 pt-11 pb-6 flex-1">
+
+    <!-- Ilustración pavo con pastel -->
+    <div class="w-[270px] h-[250px] reveal-scale">
+      <img
+        src="/images/art/pavo_pastel.png"
+        alt={`Pavo real celebrando el cumpleaños número ${event.age} de ${event.name}`}
+        class="w-full h-full object-contain"
+        loading="lazy"
+        decoding="async"
+        width="270"
+        height="250"
+      />
+    </div>
+
+    <!-- Título -->
+    <h2 class="mt-4 text-center font-heading font-extrabold text-[31px] leading-[1.1] text-ranch-primary text-pretty reveal" data-delay="1">
+      ¡Te esperamos para celebrar a lo grande!
+    </h2>
+
+    <!-- Badge -->
+    <div class="mt-3.5 flex items-center gap-2.5 px-[18px] py-2.5 rounded-full bg-ranch-primary reveal" data-delay="2">
+      <span class="font-heading font-bold text-[15px] text-ranch-cream-light">{event.name}</span>
+      <span class="w-1.5 h-1.5 rounded-full bg-ranch-gold" aria-hidden="true"></span>
+      <span class="font-heading font-bold text-[15px] text-ranch-gold">{event.age} años</span>
+    </div>
+
+    <!-- Animales de granja -->
+    {event.showSecondaryAnimals && (
+      <div class="mt-auto mb-3.5 flex flex-col gap-1.5 items-center w-full">
+        <div class="flex gap-2.5 justify-center items-end">
+          {animals.map((a) => (
+            <div
+              class="w-[88px] h-[88px] flex items-end justify-center animate-bounce-subtle reveal"
+              style={`animation-delay: ${parseInt(a.delay) * 100}ms`}
+              data-delay={a.delay}
+            >
+              <img
+                src={a.src}
+                alt={a.alt}
+                class="max-w-full max-h-full object-contain"
+                loading="lazy"
+                decoding="async"
+                width="88"
+                height="88"
+              />
+            </div>
+          ))}
+        </div>
+        <span class="font-heading font-bold text-[15px] text-ranch-cream-light [text-shadow:0_1px_2px_rgba(36,23,15,0.4)]">
+          {event.farewell}
+        </span>
+      </div>
+    )}
+
+  </div>
+</section>

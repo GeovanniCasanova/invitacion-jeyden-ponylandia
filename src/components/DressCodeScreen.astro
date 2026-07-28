@@ -1,0 +1,92 @@
+---
+import { event } from '../../config/event';
+
+const items = [
+  { src: '/images/art/sombrero.png', alt: 'Sombrero vaquero', label: 'Sombrero' },
+  { src: '/images/art/botas.png',    alt: 'Botas vaqueras',   label: 'Botas' },
+  { src: '/images/art/chaleco.png',  alt: 'Camisa vaquera',   label: 'Camisa vaquera' },
+] as const;
+---
+
+<section
+  class="relative min-h-screen overflow-hidden bg-ranch-cream-warm diagonal-pattern flex flex-col"
+  aria-label="Código de vestimenta"
+>
+  <!-- Pluma decorativa (fondo, sin interacción) -->
+  <div
+    class="absolute -top-12 -right-8 w-36 h-52 rotate-[24deg] opacity-36 pointer-events-none"
+    aria-hidden="true"
+  >
+    <img
+      src="/images/art/pavo_pluma.png"
+      alt=""
+      class="w-full h-full object-contain"
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+
+  <!-- Contenido -->
+  <div class="relative flex flex-col w-full max-w-sm mx-auto px-7 pt-10 pb-8 flex-1">
+
+    <!-- Label -->
+    <span class="font-body font-bold text-[10.5px] tracking-[0.26em] text-ranch-red">
+      CÓDIGO DE VESTIMENTA
+    </span>
+
+    <!-- Título -->
+    <h2 class="mt-3 font-heading font-extrabold text-[36px] leading-[1.05] text-ranch-primary reveal">
+      Saca tu lado vaquero
+    </h2>
+
+    <!-- Descripción -->
+    <p class="mt-2.5 font-body text-[14.5px] leading-[1.55] text-ranch-dark/60 max-w-[290px] text-pretty reveal" data-delay="1">
+      Sombrero, botas o camisa vaquera. Todo opcional, la diversión no.
+    </p>
+
+    <!-- Tarjetas de vestimenta -->
+    <div class="mt-6 flex flex-col gap-3.5">
+      {items.map((item, i) => (
+        <div
+          class="flex items-center gap-4 px-3.5 py-3.5 bg-ranch-cream rounded-[18px] border border-ranch-brown/22 reveal-left"
+          data-delay={String(i + 1)}
+        >
+          <div class="w-24 h-24 shrink-0 flex items-center justify-center">
+            <img
+              src={item.src}
+              alt={item.alt}
+              class="max-w-full max-h-full object-contain"
+              loading="lazy"
+              decoding="async"
+              width="96"
+              height="96"
+            />
+          </div>
+          <div class="flex flex-col gap-1">
+            <span class="font-heading font-bold text-[19px] text-ranch-dark">{item.label}</span>
+            <span class="font-body font-semibold text-[11px] tracking-[0.08em] text-ranch-brown">OPCIONAL</span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Card del pavo real -->
+    <div class="mt-auto flex items-center gap-3.5 px-[18px] py-4 rounded-[18px] bg-ranch-primary reveal" data-delay="4">
+      <div class="w-14 h-14 shrink-0">
+        <img
+          src="/images/art/pavo_cabeza_solo.png"
+          alt="Retrato del pavo real"
+          class="w-full h-full object-contain"
+          loading="lazy"
+          decoding="async"
+          width="56"
+          height="56"
+        />
+      </div>
+      <p class="font-body font-semibold text-[13.5px] leading-[1.45] text-ranch-cream-light/90 m-0">
+        Yo ya tengo mi sombrero listo. ¿Y tú?
+      </p>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,99 @@
+---
+import { event } from '../../config/event';
+import Countdown from './Countdown';
+---
+
+<section
+  class="relative min-h-screen overflow-hidden bg-ranch-cream flex flex-col"
+  aria-label="Información del evento"
+>
+  <!-- Barra de madera superior -->
+  <div
+    class="absolute top-0 left-0 right-0 h-[78px] wood-bar shadow-[inset_0_-5px_0_rgba(0,0,0,0.2)] pointer-events-none"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Contenido -->
+  <div class="relative flex flex-col w-full max-w-sm mx-auto px-6 pt-7 pb-8 flex-1">
+
+    <!-- Label -->
+    <span class="font-body font-bold text-[11px] tracking-[0.26em] text-ranch-cream-light mt-1">
+      CUENTA REGRESIVA
+    </span>
+
+    <!-- Cuenta regresiva -->
+    <Countdown client:only="react" eventIso={event.dateIso} />
+
+    <!-- Tarjetas de información -->
+    <div class="mt-6 flex flex-col gap-3">
+
+      <!-- Fecha -->
+      <div class="flex gap-3.5 items-center px-4 py-4 bg-ranch-cream-warm rounded-2xl border border-ranch-brown/18 reveal">
+        <div class="w-10 h-10 rounded-xl bg-ranch-teal shrink-0" aria-hidden="true"></div>
+        <div>
+          <div class="font-body font-bold text-[10px] tracking-[0.16em] text-ranch-dark/45">FECHA</div>
+          <div class="font-heading font-bold text-lg text-ranch-dark">{event.dateDisplay}</div>
+        </div>
+      </div>
+
+      <!-- Hora -->
+      <div class="flex gap-3.5 items-center px-4 py-4 bg-ranch-cream-warm rounded-2xl border border-ranch-brown/18 reveal" data-delay="1">
+        <div class="w-10 h-10 rounded-xl bg-ranch-gold shrink-0" aria-hidden="true"></div>
+        <div>
+          <div class="font-body font-bold text-[10px] tracking-[0.16em] text-ranch-dark/45">HORA</div>
+          <div class="font-heading font-bold text-lg text-ranch-dark">{event.timeDisplay}</div>
+        </div>
+      </div>
+
+      <!-- Lugar -->
+      <div class="flex gap-3.5 items-center px-4 py-4 bg-ranch-cream-warm rounded-2xl border border-ranch-brown/18 reveal" data-delay="2">
+        <div class="w-10 h-10 rounded-xl bg-ranch-green shrink-0" aria-hidden="true"></div>
+        <div>
+          <div class="font-body font-bold text-[10px] tracking-[0.16em] text-ranch-dark/45">LUGAR</div>
+          <div class="font-heading font-bold text-lg text-ranch-dark">{event.venue}</div>
+          <div class="font-body text-[12.5px] text-ranch-dark/55">{event.address}</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Tags de actividades -->
+    <div class="mt-4 flex flex-wrap gap-1.5 reveal" data-delay="3">
+      <span class="px-3 py-1.5 rounded-full bg-ranch-teal/18 border border-ranch-primary/18 font-body font-bold text-[11px] text-ranch-primary">
+        Alimentar animales
+      </span>
+      <span class="px-3 py-1.5 rounded-full bg-ranch-gold/25 border border-ranch-brown/22 font-body font-bold text-[11px] text-ranch-brown">
+        Fotos
+      </span>
+      <span class="px-3 py-1.5 rounded-full bg-ranch-green/16 border border-ranch-green/24 font-body font-bold text-[11px] text-ranch-green">
+        Paseo a caballo
+      </span>
+    </div>
+
+    <!-- Pony + botón Cómo llegar -->
+    <div class="mt-auto flex flex-col items-center gap-0.5">
+      <div class="w-28 h-28">
+        <img
+          src="/images/art/caballo.png"
+          alt="Pony de Ponylandia"
+          class="w-full h-full object-contain"
+          loading="lazy"
+          decoding="async"
+          width="112"
+          height="112"
+        />
+      </div>
+      <a
+        href={event.mapsUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="w-full h-16 flex items-center justify-center rounded-2xl bg-ranch-green text-ranch-cream-light font-heading font-bold text-[19px] shadow-[0_6px_0_#145A42,0_14px_22px_rgba(30,122,90,0.28)] no-underline reveal"
+        data-delay="4"
+        aria-label="Cómo llegar a Ponylandia — abre Google Maps"
+      >
+        Cómo llegar
+      </a>
+    </div>
+
+  </div>
+</section>

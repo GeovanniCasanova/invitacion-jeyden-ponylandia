@@ -1,0 +1,56 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title = '¡Jeyden Cumple 9 años! · Ponylandia',
+  description = '¡Jeyden Canto cumple 9 años! Acompáñanos a vivir una aventura en la granja Ponylandia el domingo 16 de agosto a las 2:30 p.m. Confirma tu asistencia por WhatsApp.',
+  image = '/images/art/pavo_saludando.png',
+} = Astro.props;
+
+const siteUrl = 'https://invitacion-jeyden.vercel.app';
+const canonicalURL = `${siteUrl}${Astro.url.pathname}`;
+const imageURL = `${siteUrl}${image}`;
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:site_name" content="Invitación · Jeyden Ponylandia" />
+<meta property="og:image" content={imageURL} />
+<meta property="og:image:secure_url" content={imageURL} />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="800" />
+<meta property="og:image:height" content="800" />
+<meta property="og:image:alt" content="Pavo real vaquero — Invitación Jeyden 9 años" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageURL} />
+
+<link rel="preload" href={image} as="image" />
+<link rel="canonical" href={canonicalURL} />
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Cumpleaños 9 de Jeyden Canto · Ponylandia",
+    "description": "Fiesta de cumpleaños en granja interactiva con animales en miniatura",
+    "startDate": "2026-08-16T14:30:00-06:00",
+    "location": {
+      "@type": "Place",
+      "name": "Ponylandia",
+      "address": "Carretera Mérida – Motul km 15, Mocochá, Yucatán"
+    }
+  }
+</script>
