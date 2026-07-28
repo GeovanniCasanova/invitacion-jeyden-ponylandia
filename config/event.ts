@@ -17,7 +17,7 @@ export const event = {
   farewell: '¡Nos vemos en Ponylandia!',
   year: 2026,
   showSecondaryAnimals: true,
-  siteUrl: 'https://invitacion-jeyden.vercel.app',
+  siteUrl: 'https://invitacion-jeyden-ponylandia.vercel.app',
 } as const;
 
 export function buildWhatsAppUrl(name: string, guests: number): string {
