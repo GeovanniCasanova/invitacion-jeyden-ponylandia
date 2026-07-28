@@ -6,6 +6,7 @@ import InfoScreen from '../components/InfoScreen.astro';
 import DressCodeScreen from '../components/DressCodeScreen.astro';
 import ConfirmationScreen from '../components/ConfirmationScreen';
 import FarewellScreen from '../components/FarewellScreen.astro';
+import MusicModal from '../components/MusicModal';
 import { event } from '../../config/event';
 ---
 
@@ -13,6 +14,9 @@ import { event } from '../../config/event';
   title={`¡${event.name} Cumple ${event.age} años! · ${event.venue}`}
   description={`¡${event.name} Canto cumple ${event.age} años! Acompáñanos a vivir una aventura en la granja ${event.venue} el ${event.dateDisplay} a las ${event.timeDisplay}. Confirma tu asistencia por WhatsApp.`}
 >
+  <!-- Modal de música -->
+  <MusicModal client:load />
+
   <!-- Pantalla 01: Bienvenida -->
   <WelcomeScreen />
 
