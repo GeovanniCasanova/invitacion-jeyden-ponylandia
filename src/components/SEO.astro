@@ -8,7 +8,7 @@ interface Props {
 const {
   title = '¡Jeyden Cumple 9 años! · Ponylandia',
   description = '¡Jeyden Canto cumple 9 años! Acompáñanos a vivir una aventura en la granja Ponylandia el domingo 16 de agosto a las 2:30 p.m. Confirma tu asistencia por WhatsApp.',
-  image = '/images/imagen_open_graph.png',
+  image = '/images/imagen_open_graph.jpg',
 } = Astro.props;
 
 const siteUrl = 'https://invitacion-jeyden-ponylandia.vercel.app';
@@ -27,7 +27,7 @@ const imageURL = `${siteUrl}${image}`;
 <meta property="og:site_name" content="Invitación · Jeyden Ponylandia" />
 <meta property="og:image" content={imageURL} />
 <meta property="og:image:secure_url" content={imageURL} />
-<meta property="og:image:type" content="image/png" />
+<meta property="og:image:type" content="image/jpeg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Pavo real vaquero — Invitación Jeyden 9 años" />
@@ -41,7 +41,7 @@ const imageURL = `${siteUrl}${image}`;
 <meta property="whatsapp:image" content={imageURL} />
 <meta name="thumbnail" content={imageURL} />
 
-<link rel="preload" href={image} as="image" />
+<link rel="preload" href={image} as="image" type="image/jpeg" />
 <link rel="canonical" href={canonicalURL} />
 
 <script type="application/ld+json">
