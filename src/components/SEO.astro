@@ -36,7 +36,12 @@ const imageURL = `${siteUrl}${image}`;
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={imageURL} />
+<meta name="twitter:image:alt" content="Invitación Jeyden 9 años · Ponylandia" />
 
+<meta property="whatsapp:image" content={imageURL} />
+<meta name="thumbnail" content={imageURL} />
+
+<link rel="preload" href={image} as="image" />
 <link rel="canonical" href={canonicalURL} />
 
 <script type="application/ld+json">
