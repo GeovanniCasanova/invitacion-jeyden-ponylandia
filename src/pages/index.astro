@@ -7,6 +7,7 @@ import DressCodeScreen from '../components/DressCodeScreen.astro';
 import ConfirmationScreen from '../components/ConfirmationScreen';
 import FarewellScreen from '../components/FarewellScreen.astro';
 import GiftsScreen from '../components/GiftsScreen.astro';
+import PhotoScreen from '../components/PhotoScreen.astro';
 import MusicModal from '../components/MusicModal';
 import { event } from '../../config/event';
 ---
@@ -30,12 +31,15 @@ import { event } from '../../config/event';
     <DressCodeScreen />
   </div>
 
-  <!-- Pantalla 05: Guía de regalos -->
+  <!-- Pantalla 05: Sesión de fotos -->
+  <PhotoScreen />
+
+  <!-- Pantalla 06: Guía de regalos -->
   <GiftsScreen />
 
-  <!-- Pantalla 06: Confirmación -->
+  <!-- Pantalla 07: Confirmación -->
   <ConfirmationScreen client:load />
 
-  <!-- Pantalla 06: Despedida -->
+  <!-- Pantalla 08: Despedida -->
   <FarewellScreen />
 </Layout>
