@@ -3,12 +3,11 @@ import { event, buildWhatsAppUrl } from '../../config/event';
 
 export default function ConfirmationScreen() {
   const [name, setName] = useState('');
-  const [guests, setGuests] = useState(4);
   const [confirmed, setConfirmed] = useState(false);
 
   function handleConfirm() {
     if (!name.trim()) return;
-    const url = buildWhatsAppUrl(name.trim(), guests);
+    const url = buildWhatsAppUrl(name.trim());
     window.open(url, '_blank', 'noopener,noreferrer');
     setConfirmed(true);
   }
@@ -51,38 +50,6 @@ export default function ConfirmationScreen() {
               className="h-[52px] rounded-2xl border-2 border-ranch-brown/30 bg-ranch-cream px-4 font-body font-semibold text-base text-ranch-dark outline-none focus:border-ranch-primary transition-colors"
               autoComplete="given-name"
             />
-          </div>
-
-          {/* Número de asistentes */}
-          <div className="flex flex-col gap-2.5">
-            <label className="font-body font-bold text-[10.5px] tracking-[0.16em] text-ranch-dark/50">
-              NÚMERO DE ASISTENTES
-            </label>
-            <div className="flex items-center gap-3.5">
-              <button
-                type="button"
-                onClick={() => setGuests((g) => Math.max(1, g - 1))}
-                className="w-[52px] h-[52px] rounded-2xl border-2 border-ranch-brown/30 bg-ranch-cream font-heading font-bold text-2xl text-ranch-brown cursor-pointer"
-                aria-label="Reducir número de asistentes"
-              >
-                –
-              </button>
-              <div
-                className="flex-1 h-[52px] rounded-2xl bg-ranch-primary flex items-center justify-center font-heading font-extrabold text-2xl text-ranch-cream-light"
-                aria-live="polite"
-                aria-label={`${guests} asistentes`}
-              >
-                {guests}
-              </div>
-              <button
-                type="button"
-                onClick={() => setGuests((g) => Math.min(12, g + 1))}
-                className="w-[52px] h-[52px] rounded-2xl border-2 border-ranch-brown/30 bg-ranch-cream font-heading font-bold text-2xl text-ranch-brown cursor-pointer"
-                aria-label="Aumentar número de asistentes"
-              >
-                +
-              </button>
-            </div>
           </div>
 
           {/* Botón WhatsApp */}

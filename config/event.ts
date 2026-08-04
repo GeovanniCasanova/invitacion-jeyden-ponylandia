@@ -20,11 +20,10 @@ export const event = {
   siteUrl: 'https://invitacion-jeyden-ponylandia.vercel.app',
 } as const;
 
-export function buildWhatsAppUrl(name: string, guests: number): string {
-  const plural = guests !== 1 ? 's' : '';
+export function buildWhatsAppUrl(name: string): string {
   const msg =
-    `Hola, confirmo la asistencia de ${name}.\n` +
-    `Asistiremos ${guests} persona${plural}.\n\n` +
+    `Hola, confirmo mi asistencia.\n` +
+    `Mi nombre es ${name}.\n\n` +
     `Nos vemos en ${event.venue}.`;
   return `https://wa.me/${event.phone}?text=${encodeURIComponent(msg)}`;
 }
